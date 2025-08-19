@@ -4,11 +4,15 @@ const MailboxList = (props) => {
     return (
         <>
         <h2>Mailbox List</h2>
-        <ul>
-            {props.mailboxes.map((currentMailbox)=> (
-                <li key={currentMailbox.name}>{currentMailbox.name}</li>
-            ))}
-        </ul>
+            <ul>
+                {props.mailboxes.map((currentMailbox) => (
+                    <li key={currentMailbox.boxHolder}>{currentMailbox.boxHolder}
+                <Link to={'/mailboxes/${currentMailbox._id}'}>
+                    {currentMailbox.boxHolder}
+                </Link>
+                    </li>
+                ))};
+            </ul > 
         </>
     );
 };

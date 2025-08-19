@@ -1,22 +1,24 @@
-import { Link } from "react-router";
+// import { Link, Navigate, useNavigate } from "react-router";
 import { useState } from 'react';
+import { useNavigate } from "react-router";
 
-const MailBoxForm = () => {
 
-    const [mailboxes, setMailboxes] = useState([])
+const initialState = {
+  boxHolder: '',
+  boxSize: ''
+};
 
-    // const mailboxForm = (props) => {
-        const[formData, setFormData] = useState({
-            boxholder: '',
-            boxSize: '',
-        })
-    // }
+const MailboxForm = (props) => {
+
+    const [formData, setFormData] = useState(initialState)
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    setFormData({ boxholder: '', boxSize: '' });
-
-    }
+        props.addMailbox(formData)
+        setFormData(initialState);
+        navigate('/mailboxes');
+    };
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value});
@@ -30,12 +32,16 @@ const MailBoxForm = () => {
 
             <label htmlFor="boxholder">Enter a Boxholder:</label>
             <input
+            type="text"
+            id="boxholder"
             name="boxholder"
-            value={formData.boxholder}
-            onChange={handleChange}/>
+            value={formData.boxHolder}
+            onChange={handleChange}
+            />
 
             <label htmlFor="boxSize">Selext a Box Size:</label>
             <select 
+            id="boxsize"
             name="boxSize"
             value={formData.boxSize}
             onChange={handleChange}
@@ -44,7 +50,7 @@ const MailBoxForm = () => {
                 <option value="large">Large</option>
             </select>
 
-            <button type="submit">Submitt</button>
+            <button type="submit">Submit</button>
         </form>
 
         </>
@@ -54,4 +60,4 @@ const MailBoxForm = () => {
 
 
 
-export default MailBoxForm;
+export default MailboxForm;
