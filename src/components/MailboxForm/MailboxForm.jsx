@@ -1,11 +1,11 @@
-// import { Link, Navigate, useNavigate } from "react-router";
 import { useState } from 'react';
 import { useNavigate } from "react-router";
 
 
 const initialState = {
-  boxHolder: '',
-  boxSize: ''
+    _id: 0,
+    boxHolder: '',
+    boxSize: ''
 };
 
 const MailboxForm = (props) => {
@@ -18,6 +18,7 @@ const MailboxForm = (props) => {
         props.addMailbox(formData);
         setFormData(initialState);
         navigate('/mailboxes');
+        console.log(formData);
     };
 
     const handleChange = ({ target }) => {
@@ -47,6 +48,7 @@ const MailboxForm = (props) => {
             onChange={handleChange}
             >
                 <option value="small">Small</option>
+                <option value="medium">Medium</option>
                 <option value="large">Large</option>
             </select>
 
@@ -56,8 +58,5 @@ const MailboxForm = (props) => {
         </>
     )
 };
-
-
-
 
 export default MailboxForm;

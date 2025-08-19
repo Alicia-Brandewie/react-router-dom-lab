@@ -18,14 +18,13 @@ const App = () => {
 
   return (
     <>
-      <main><h1>Post Office</h1></main>
       <Navbar />
       <div>
         <Routes>
           <Route path="/" element={<main><h1>Post Office</h1></main>} />
           <Route path="/mailboxes" element={<MailboxList mailboxes={mailboxes} />} />
           <Route path="/new-mailbox" element={<MailboxForm addMailbox={addMailbox} />} />
-          <Route path="/mailboxes/:mailboxId" element={<MailboxDetails mailboxes={mailboxes} />} />
+          <Route path="/mailboxes/:mailboxesId" element={<MailboxDetails mailboxes={mailboxes} />} />
           <Route path="*" element={<h2>Whoops, nothing here!</h2>} />
         </Routes>
       </div>
@@ -34,5 +33,3 @@ const App = () => {
 };
 
 export default App;
-
-
