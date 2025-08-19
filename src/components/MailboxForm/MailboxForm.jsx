@@ -15,33 +15,33 @@ const MailboxForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.addMailbox(formData)
+        props.addMailbox(formData);
         setFormData(initialState);
         navigate('/mailboxes');
     };
 
-    const handleChange = (event) => {
-        setFormData({...formData, [event.target.name]: event.target.value});
+    const handleChange = ({ target }) => {
+        setFormData({...formData, [target.name]: target.value});
     };
 
     return (
         <>
         <h2>New Mailbox</h2>
 
-        <form onChange={handleSubmit}>
+        <form onSubmit={handleSubmit}>
 
-            <label htmlFor="boxholder">Enter a Boxholder:</label>
+            <label htmlFor="boxHolder">Enter a Boxholder:</label>
             <input
             type="text"
-            id="boxholder"
-            name="boxholder"
+            id="boxHolder"
+            name="boxHolder"
             value={formData.boxHolder}
             onChange={handleChange}
             />
 
             <label htmlFor="boxSize">Selext a Box Size:</label>
             <select 
-            id="boxsize"
+            id="boxSize"
             name="boxSize"
             value={formData.boxSize}
             onChange={handleChange}

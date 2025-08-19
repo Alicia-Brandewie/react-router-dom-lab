@@ -6,25 +6,20 @@ import MailboxForm from './components/MailboxForm/MailboxForm';
 import MailboxList from './components/MailboxList/MailboxList';
 import MailboxDetails from './components/MailboxDetails/MailboxDetails';
 
-const initialState = {
-  _id: '',
-  boxHolder: '',
-  boxSize: ''
-};
 
 const App = () => {
 
-  const [mailboxes, setMailboxes] =useState(initialState)
+  const [mailboxes, setMailboxes] = useState([])
 
-  const addMailbox = (newMailboxData) =>{
-    newMailboxData._id = mailboxes.length +1;
-    setMailboxes([...mailboxes,newMailboxData]);
+  const addMailbox = (newMailboxData) => {
+    newMailboxData._id = mailboxes.length + 1;
+    setMailboxes([...mailboxes, newMailboxData]);
   }
 
   return (
     <>
       <main><h1>Post Office</h1></main>
-      <Navbar/>
+      <Navbar />
       <div>
         <Routes>
           <Route path="/" element={<main><h1>Post Office</h1></main>} />

@@ -6,12 +6,12 @@ const MailboxList = (props) => {
         <h2>Mailbox List</h2>
             <ul>
                 {props.mailboxes.map((currentMailbox) => (
-                    <li key={currentMailbox.boxHolder}>{currentMailbox.boxHolder}
+                    <li key={currentMailbox.boxHolder}>
                 <Link to={'/mailboxes/${currentMailbox._id}'}>
                     {currentMailbox.boxHolder}
                 </Link>
                     </li>
-                ))};
+                ))}
             </ul > 
         </>
     );
