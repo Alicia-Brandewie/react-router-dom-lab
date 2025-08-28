@@ -12,14 +12,23 @@ const MailboxDetails = (props) => {
 
     return (
         <>
-            <h2>Mailbox {singleMailbox._id}</h2>
-            <h3>Details</h3>
-            <dl>
-                <dt>Box Holder:</dt>
-                <dd>{singleMailbox.boxHolder}</dd>
-                <dt>Box Size:</dt>
-                <dd>{singleMailbox.boxSize}</dd>
-            </dl>
+            {singleMailbox ? (
+                <>
+                    <h2>Mailbox {singleMailbox._id}</h2>
+                    <h3>Details</h3>
+                    <dl>
+                        <dt>Box Holder:</dt>
+                        <dd>{singleMailbox.boxHolder}</dd>
+                        <dt>Box Size:</dt>
+                        <dd>{singleMailbox.boxSize}</dd>
+                    </dl>
+                </>
+            ) : (
+                <>
+                    <h2>Mailbox Not Found!</h2>
+                </>
+            )
+            }
         </>
     );
 };
